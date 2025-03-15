@@ -1,54 +1,363 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple E-commerce</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <h1>ShopEasy</h1>
-        </div>
-        <div class="cart">
-            <button id="cart-button">Cart (0)</button>
-        </div>
-    </header>
-
-    <section class="products">
-        <div class="product-card">
-            <img src="https://via.placeholder.com/200" alt="Product 1">
-            <h3>Product 1</h3>
-            <p>$20.00</p>
-            <button class="add-to-cart" data-name="Product 1" data-price="20">Add to Cart</button>
-        </div>
-
-        <div class="product-card">
-            <img src="https://via.placeholder.com/200" alt="Product 2">
-            <h3>Product 2</h3>
-            <p>$25.00</p>
-            <button class="add-to-cart" data-name="Product 2" data-price="25">Add to Cart</button>
-        </div>
-
-        <div class="product-card">
-            <img src="https://via.placeholder.com/200" alt="Product 3">
-            <h3>Product 3</h3>
-            <p>$30.00</p>
-            <button class="add-to-cart" data-name="Product 3" data-price="30">Add to Cart</button>
-        </div>
-    </section>
-
-    <div id="cart-modal" class="cart-modal">
-        <div class="modal-content">
-            <h2>Your Cart</h2>
-            <ul id="cart-items"></ul>
-            <p>Total: $<span id="total-price">0</span></p>
-            <button id="checkout-button">Checkout</button>
-            <button id="close-cart">Close</button>
-        </div>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   eBarn
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+  </style>
+ </head>
+ <body class="bg-gray-100">
+  <!-- Header -->
+  <header class="bg-gray-800 text-white">
+   <div class="container mx-auto flex justify-between items-center py-4 px-6">
+    <div class="flex items-center">
+     <img alt="StyleNest logo" class="mr-3" height="50" src="WhatsApp Image 2025-03-15 at 3.18.00 PM.jpeg" width="50"/>
+     <h1 class="text-2xl font-bold">
+      StyleNest
+     </h1>
     </div>
-
-    <script src="script.js"></script>
-</body>
+    <nav class="hidden md:flex space-x-4">
+     <a class="hover:text-yellow-500" href="#">
+      Brands
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      About Us
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      FAQ
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      Gallery
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      Contact Us
+     </a>
+    </nav>
+    <div class="hidden md:flex items-center space-x-4">
+     <a class="hover:text-yellow-500" href="#">
+      <i class="fas fa-user">
+      </i>
+      My Account
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      <i class="fas fa-heart">
+      </i>
+      Wishlist
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      <i class="fas fa-shopping-cart">
+      </i>
+      Cart
+     </a>
+    </div>
+   </div>
+  </header>
+  <!-- Subheader -->
+  <div class="bg-gray-700 text-white py-2">
+   <div class="container mx-auto flex justify-between items-center px-6">
+    <div class="flex space-x-4">
+     <a class="hover:text-yellow-500" href="#">
+      Electronics
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      Men
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      Women
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      Baby &amp; Kids
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      Books &amp; Media
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      Home &amp; Kitchen
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      More Stores
+     </a>
+    </div>
+    <div class="hidden md:flex items-center space-x-4">
+     <a class="hover:text-yellow-500" href="#">
+      <i class="fas fa-phone">
+      </i>
+      +123 456 7890
+     </a>
+     <a class="hover:text-yellow-500" href="#">
+      <i class="fas fa-map-marker-alt">
+      </i>
+      Location
+     </a>
+    </div>
+   </div>
+  </div>
+  <!-- Main Banner -->
+  <div class="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-16">
+   <div class="container mx-auto flex flex-col md:flex-row items-center px-6">
+    <div class="md:w-1/2">
+     <h2 class="text-4xl font-bold mb-4">
+      Enjoy Shopping
+     </h2>
+     <p class="mb-6">
+        Step into a world where style meets convenience! From one-of-a-kind fashion pieces to innovative gadgets, we bring you an exclusive selection of products that you won’t find anywhere else. With personalized recommendations, effortless browsing, and exceptional customer service, your shopping experience is as enjoyable as it is rewarding. Discover something new today and let us add a touch of magic to your cart!
+    </p>
+    
+     <a class="bg-yellow-500 text-gray-800 px-4 py-2 rounded" href="#">
+      Shop Now
+     </a>
+    </div>
+    <div class="md:w-1/2">
+     <img alt="Shopping banner image" class="rounded" height="300" src="https://storage.googleapis.com/a1aa/image/VCo9tPYCsTsHpdLYsYPNVj8neiOrZhwp6Ghjrpbc9x0.jpg" width="500"/>
+    </div>
+   </div>
+  </div>
+  <!-- Promotions -->
+  <div class="bg-white py-8">
+   <div class="container mx-auto flex flex-wrap justify-center space-x-4 px-6">
+    <div class="bg-yellow-500 text-gray-800 p-4 rounded mb-4">
+     <img alt="Promo 1" class="mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/NY6dqzxPxyD41OC3cxu2BXeBcghsr0oB6K9AhLqonmk.jpg" width="100"/>
+     <p>
+      Daily Deals
+     </p>
+    </div>
+    <div class="bg-gray-200 text-gray-800 p-4 rounded mb-4">
+     <img alt="Promo 2" class="mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/JJIwNTYcpeq8gxbf4Hk6pEM-IHdGAw_tet3m4ySCbgg.jpg" width="100"/>
+     <p>
+      Special Offers
+     </p>
+    </div>
+    <div class="bg-yellow-500 text-gray-800 p-4 rounded mb-4">
+     <img alt="Promo 3" class="mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/52HLrByvPt3QiLW6XJDDzxx_AaytfUi1fQcN62Ne5HE.jpg" width="100"/>
+     <p>
+      One Last Chance 80%
+     </p>
+    </div>
+    <div class="bg-gray-200 text-gray-800 p-4 rounded mb-4">
+     <img alt="Promo 4" class="mb-2" height="100" src="https://storage.googleapis.com/a1aa/image/4w9oSmuZH4bal_RcKXmGlADzeXQRIPoxhMlLzcOflq0.jpg" width="100"/>
+     <p>
+      Women's Sale
+     </p>
+    </div>
+   </div>
+  </div>
+  <!-- Product Section -->
+  <div class="bg-gray-100 py-8">
+   <div class="container mx-auto px-6">
+    <div class="flex justify-between items-center mb-4">
+     <h3 class="text-xl font-bold">
+      All
+     </h3>
+     <div class="flex space-x-4">
+      <a class="hover:text-yellow-500" href="#">
+       New
+      </a>
+      <a class="hover:text-yellow-500" href="#">
+       Featured
+      </a>
+      <a class="hover:text-yellow-500" href="#">
+       Special
+      </a>
+     </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+     <!-- Product 1 -->
+     <div class="bg-white p-4 rounded shadow">
+      <img alt="Product 1" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/6tvd0Kvj69aH7Z_xlII5OUNSKFL9mT0Q2HoxfsMGbBY.jpg" width="200"/>
+      <h4 class="text-lg font-bold mb-2">
+       Lorem ipsum dolor
+      </h4>
+      <p class="text-gray-600 mb-2">
+       $799
+      </p>
+      <a class="bg-yellow-500 text-gray-800 px-4 py-2 rounded" href="#">
+       Add to Cart
+      </a>
+     </div>
+     <!-- Product 2 -->
+     <div class="bg-white p-4 rounded shadow">
+      <img alt="Product 2" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/ENnRQZmNisnSXhn93lanNxb813i6D_SKWBU40oALspc.jpg" width="200"/>
+      <h4 class="text-lg font-bold mb-2">
+       Lorem ipsum dolor
+      </h4>
+      <p class="text-gray-600 mb-2">
+       $799
+      </p>
+      <a class="bg-yellow-500 text-gray-800 px-4 py-2 rounded" href="#">
+       Add to Cart
+      </a>
+     </div>
+     <!-- Product 3 -->
+     <div class="bg-white p-4 rounded shadow">
+      <img alt="Product 3" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/EdOds82WwUXcgMnVfB4ISS4SM4nvw7YUisYOvxIhLGg.jpg" width="200"/>
+      <h4 class="text-lg font-bold mb-2">
+       Lorem ipsum dolor
+      </h4>
+      <p class="text-gray-600 mb-2">
+       $799
+      </p>
+      <a class="bg-yellow-500 text-gray-800 px-4 py-2 rounded" href="#">
+       Add to Cart
+      </a>
+     </div>
+     <!-- Product 4 -->
+     <div class="bg-white p-4 rounded shadow">
+      <img alt="Product 4" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/2L44uQbbyoJflDpnDgTPhdtaQTjrarolJEPVfkjeN30.jpg" width="200"/>
+      <h4 class="text-lg font-bold mb-2">
+       Lorem ipsum dolor
+      </h4>
+      <p class="text-gray-600 mb-2">
+       $799
+      </p>
+      <a class="bg-yellow-500 text-gray-800 px-4 py-2 rounded" href="#">
+       Add to Cart
+      </a>
+     </div>
+     <!-- Product 5 -->
+     <div class="bg-white p-4 rounded shadow">
+      <img alt="Product 5" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/PdFn2_j92s7SCllRD-8vdz92KO9by7QU_BRV1IPYJyE.jpg" width="200"/>
+      <h4 class="text-lg font-bold mb-2">
+       Lorem ipsum dolor
+      </h4>
+      <p class="text-gray-600 mb-2">
+       $799
+      </p>
+      <a class="bg-yellow-500 text-gray-800 px-4 py-2 rounded" href="#">
+       Add to Cart
+      </a>
+     </div>
+     <!-- Product 6 -->
+     <div class="bg-white p-4 rounded shadow">
+      <img alt="Product 6" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/StOLg2zmepjpyOiyXJsnODQ_CmqpTDuTFC9ddHeejFM.jpg" width="200"/>
+      <h4 class="text-lg font-bold mb-2">
+       Lorem ipsum dolor
+      </h4>
+      <p class="text-gray-600 mb-2">
+       $799
+      </p>
+      <a class="bg-yellow-500 text-gray-800 px-4 py-2 rounded" href="#">
+       Add to Cart
+      </a>
+     </div>
+     <!-- Product 7 -->
+     <div class="bg-white p-4 rounded shadow">
+      <img alt="Product 7" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/gf_Oz8ffvtUOqmd8rdNF6zBWtL8P1oE6JZZUAW89qqg.jpg" width="200"/>
+      <h4 class="text-lg font-bold mb-2">
+       Lorem ipsum dolor
+      </h4>
+      <p class="text-gray-600 mb-2">
+       $799
+      </p>
+      <a class="bg-yellow-500 text-gray-800 px-4 py-2 rounded" href="#">
+       Add to Cart
+      </a>
+     </div>
+     <!-- Product 8 -->
+     <div class="bg-white p-4 rounded shadow">
+      <img alt="Product 8" class="mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/TgIJzpepBZbRakR5VLprKzgUpOLUiywvnlT0AWnXxLM.jpg" width="200"/>
+      <h4 class="text-lg font-bold mb-2">
+       Lorem ipsum dolor
+      </h4>
+      <p class="text-gray-600 mb-2">
+       $799
+      </p>
+      <a class="bg-yellow-500 text-gray-800 px-4 py-2 rounded" href="#">
+       Add to Cart
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+   <div class="container mx-auto px-6">
+    <div class="flex flex-wrap justify-between items-center mb-6">
+     <div class="flex space-x-4">
+      <img alt="Rosenfeld logo" height="50" src="https://storage.googleapis.com/a1aa/image/e9f-z2AfGkgH3ZNTw0DJbshJRgEa80WvPqyy4DS-p9o.jpg" width="100"/>
+      <img alt="NodeOne logo" height="50" src="https://storage.googleapis.com/a1aa/image/qjWfphuG8MftgpVp5tb150px5-R9oZrUm2sU1hqF8rc.jpg" width="100"/>
+      <img alt="Centex logo" height="50" src="https://storage.googleapis.com/a1aa/image/zliGlM03alkWdqCLlXnm6jnzwGEOuPAeZRyTYSV9FoE.jpg" width="100"/>
+      <img alt="Genesis logo" height="50" src="https://storage.googleapis.com/a1aa/image/FU75IpSIdbRWRGLbTNQ-TsaWv1NyumznHYNcdKxnlHQ.jpg" width="100"/>
+      <img alt="ARCH logo" height="50" src="https://storage.googleapis.com/a1aa/image/4sZb930scD12AfNRUJCeqQiwYmK0R7EnirP072671Js.jpg" width="100"/>
+     </div>
+    </div>
+    <div class="flex flex-wrap justify-between">
+     <div class="w-full md:w-1/3 mb-6 md:mb-0">
+      <h4 class="text-lg font-bold mb-4">
+       Sign up for our newsletter
+      </h4>
+      <form class="flex">
+       <input class="w-full p-2 rounded-l" placeholder="Enter your email" type="email"/>
+       <button class="bg-yellow-500 text-gray-800 px-4 py-2 rounded-r" type="submit">
+        Subscribe
+       </button>
+      </form>
+     </div>
+     <div class="w-full md:w-1/3 mb-6 md:mb-0">
+      <h4 class="text-lg font-bold mb-4">
+       Follow Us
+      </h4>
+      <div class="flex space-x-4">
+       <a class="text-yellow-500" href="#">
+        <i class="fab fa-facebook-f">
+        </i>
+       </a>
+       <a class="text-yellow-500" href="#">
+        <i class="fab fa-twitter">
+        </i>
+       </a>
+       <a class="text-yellow-500" href="#">
+        <i class="fab fa-instagram">
+        </i>
+       </a>
+       <a class="text-yellow-500" href="#">
+        <i class="fab fa-linkedin-in">
+        </i>
+       </a>
+      </div>
+     </div>
+     <div class="w-full md:w-1/3">
+      <h4 class="text-lg font-bold mb-4">
+       Quick Links
+      </h4>
+      <ul>
+       <li>
+        <a class="hover:text-yellow-500" href="#">
+         Wishlist
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-yellow-500" href="#">
+         Gift Cards
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-yellow-500" href="#">
+         Customer Service
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-yellow-500" href="#">
+         My Account
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="text-center mt-6">
+    <p>
+     © 2025 StyleNest. All rights reserved.
+    </p>
+   </div>
+  </footer>
+ </body>
 </html>
